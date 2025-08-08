@@ -5,6 +5,7 @@ import { commandExit } from "./command_exit.js";
 import { PokeAPI } from "./pokeapi.js";
 import { commandMapBack, commandMapForward } from "./command_map.js";
 import { commandExplore } from "./command_explore.js";
+import { commandCatch } from "./command_catch.js";
 
 function getCommands(): Record<string, CLICommand> {
   return {
@@ -30,8 +31,13 @@ function getCommands(): Record<string, CLICommand> {
     },
     explore: {
         name: "explore",
-        description: "Displayes the names of pokemons in a location",
+        description: "Displays the names of pokemons in a location",
         callback: commandExplore,
+    },
+    catch: {
+        name: "catch",
+        description: "Tries to catch a pokemon",
+        callback: commandCatch,
     },
   };
 }
@@ -48,5 +54,6 @@ export function initState(): State {
         commands,
         repl,
         pokeapi,
+        pokedex: {},
     }
 }

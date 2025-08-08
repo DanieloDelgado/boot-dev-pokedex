@@ -1,5 +1,5 @@
 import type { Interface } from "readline";
-import { PokeAPI } from "./pokeapi.js";
+import { PokeAPI, Pokemon } from "./pokeapi.js";
 
 export type CLICommand = {
     name: string;
@@ -13,4 +13,5 @@ export type State = {
   pokeapi: PokeAPI;
   prevLocationsURL?: string;
   nextLocationsURL?: string;
+  pokedex: Record<string, Pokemon>;
 }
