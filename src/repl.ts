@@ -14,7 +14,15 @@ export function startREPL() {
         if (input.length !== 0 && input[0]){
             const command = input[0];
             if (command in state.commands){
-                await state.commands[command].callback(state)
+                try {
+                    await state.commands[command].callback(state, ...input.slice(1));
+                } catch (error) {
+                    if (error instanceof Error){
+                        console.log(error.message)
+                    } else {
+                        console.log("Unknown error type")
+                    }
+                }
             } else {
                 console.log("Unknown command")
             }

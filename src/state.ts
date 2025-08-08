@@ -4,6 +4,7 @@ import { commandHelp } from "./command_help.js";
 import { commandExit } from "./command_exit.js";
 import { PokeAPI } from "./pokeapi.js";
 import { commandMapBack, commandMapForward } from "./command_map.js";
+import { commandExplore } from "./command_explore.js";
 
 function getCommands(): Record<string, CLICommand> {
   return {
@@ -26,6 +27,11 @@ function getCommands(): Record<string, CLICommand> {
         name: "mapb",
         description: "Displays the names of the previous 20 location areas in the Pokemon world",
         callback: commandMapBack,
+    },
+    explore: {
+        name: "explore",
+        description: "Displayes the names of pokemons in a location",
+        callback: commandExplore,
     },
   };
 }
