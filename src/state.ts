@@ -1,11 +1,12 @@
 import { createInterface } from "readline";
 import type { CLICommand, State } from "./state.type";
+import { PokeAPI } from "./pokeapi.js";
 import { commandHelp } from "./command_help.js";
 import { commandExit } from "./command_exit.js";
-import { PokeAPI } from "./pokeapi.js";
 import { commandMapBack, commandMapForward } from "./command_map.js";
 import { commandExplore } from "./command_explore.js";
 import { commandCatch } from "./command_catch.js";
+import { commandInspect } from "./command_inspect.js";
 
 function getCommands(): Record<string, CLICommand> {
   return {
@@ -38,6 +39,11 @@ function getCommands(): Record<string, CLICommand> {
         name: "catch",
         description: "Tries to catch a pokemon",
         callback: commandCatch,
+    },
+    inspect: {
+        name: "inspect",
+        description: "Displays information of a pokemon",
+        callback: commandInspect,
     },
   };
 }
